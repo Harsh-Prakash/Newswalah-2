@@ -31,7 +31,7 @@ const App =()=> {
 
     return (
       <div>
-        <HashRouter>
+        <HashRouter basename='/Newswalah'>
           <NavBar />
           <LoadingBar
             color='#f11946'
@@ -39,7 +39,7 @@ const App =()=> {
             
           />
           <Routes>
-            <Route path='/' element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={pagesize} country='in' category='general' />}></Route>
+            <Route exact path='/Newswalah' element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={pagesize} country='in' category='general' />}></Route>
             <Route path='/general' element={<News setProgress={setProgress} apiKey={apiKey} key='general' pageSize={pagesize} country='in' category='general' />}></Route>
             <Route path='/bussiness' element={<News setProgress={setProgress} apiKey={apiKey} key='business' pageSize={pagesize} country='in' category='bussiness' />}></Route>
             <Route path='/entertainment' element={<News setProgress={setProgress} apiKey={apiKey} key='entertainment' pageSize={pagesize} country='in' category='entertainment' />}></Route>
