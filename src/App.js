@@ -13,6 +13,7 @@ import {
   Routes,
   Route,
   HashRouter,
+  BrowserRouter,
 } from "react-router-dom"
 
 const App =()=> {
@@ -31,7 +32,7 @@ const App =()=> {
 
     return (
       <div>
-        <HashRouter basename='/Newswalah'>
+        <BrowserRouter basename='/Newswalah'>
           <NavBar />
           <LoadingBar
             color='#f11946'
@@ -49,7 +50,7 @@ const App =()=> {
             <Route path='/technology' element={<News setProgress={setProgress} apiKey={apiKey} key='technology' pageSize={pagesize} country='in' category='technology' />}></Route>
             <Route path="/About" element={<About />}></Route>
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </div>
     )
 }
