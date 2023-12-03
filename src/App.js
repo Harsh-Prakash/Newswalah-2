@@ -5,12 +5,14 @@ import NavBar from './components/NavBar';
 import News from './components/News';
 import LoadingBar from 'react-top-loading-bar'
 import About from './components/About';
+// import { HashRouter } from "react-router-dom";
 
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
+  HashRouter,
 } from "react-router-dom"
 
 const App =()=> {
@@ -29,7 +31,7 @@ const App =()=> {
 
     return (
       <div>
-        <Router>
+        <HashRouter>
           <NavBar />
           <LoadingBar
             color='#f11946'
@@ -47,7 +49,7 @@ const App =()=> {
             <Route path='/technology' element={<News setProgress={setProgress} apiKey={apiKey} key='technology' pageSize={pagesize} country='in' category='technology' />}></Route>
             <Route path="/About" element={<About />}></Route>
           </Routes>
-        </Router>
+        </HashRouter>
       </div>
     )
 }
