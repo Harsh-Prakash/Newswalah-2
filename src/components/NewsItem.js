@@ -12,7 +12,7 @@ const NewsItem = (props) => {
           <div className="card-body">
             <h5 className="card-title">{title}...</h5>
             <p className="card-text">{description}....</p>
-            <p class="card-text"><small class="text-body-secondary">By {author ? author : "Unknown"} on {new Date(date).toGMTString()}</small></p>
+            <p class="card-text"><small class="text-body-secondary">Published on {new Date(date).toGMTString()}</small></p>
             <a rel='noreferrer' href={newsUrl} target='_blank' className="btn btn-sm btn-primary">Read more</a>
           </div>
         </div>

@@ -18,7 +18,8 @@ const News = (props) => {
 
   const updatNews = async () => {
     props.setProgress(10)
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`
+    // const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`
+    const url = `https://gnews.io/api/v4/top-headlines?country=${props.country}&category=${props.category}&max=100&apikey=${props.apiKey}`
     setLoading(true)
     let data = await fetch(url)
     let parsedData = await data.json()
@@ -83,7 +84,7 @@ const News = (props) => {
       <h1 className='text-center' style={{marginTop:"70px"}}>NewsWalah - Top Headlines! - {capitalizeFirstLetter(props.category)}</h1>
       {loading && <Spinner />}
       <InfiniteScroll
-        dataLength={articles.length}
+        conts dataLength={articles.length}
         next={fetchMoreData}
         hasMore={articles.length !== totalResults && articles.length < totalResults}
         loader={<Spinner />}
@@ -95,7 +96,7 @@ const News = (props) => {
             articles.map((element) => {
               return <div className="col-md-4" key={element.url}>
                 {/* <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 88) : ""} imageUrl={element.urlToImage} newsUrl={element.url} /> */}
-                <NewsItem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
+                <NewsItem title={element.title} description={element.description} imageUrl={element.image} newsUrl={element.url}  date={element.publishedAt} source={element.source.name} />
               </div>
             })
           }
